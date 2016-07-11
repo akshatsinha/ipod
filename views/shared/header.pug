@@ -1,0 +1,25 @@
+mixin header(active_tab)
+    nav.navbar.navbar-default
+        div.container-fluid
+            div.navbar-header
+                a.navbar-brand(href="javascript:void(0)") Interview Panel On-Demand
+
+            if user
+                ul.nav.navbar-nav.navbar-right
+                    each tab in ['dashboard', 'logout']
+                        if tab == active_tab
+                            li.active
+                                a(href="/" + tab) #{tab.toUpperCase()}
+                        else
+                            li
+                                a(href="/" + tab) #{tab.toUpperCase()}
+
+            else
+                ul.nav.navbar-nav.navbar-right
+                    each tab in ['login', 'signup']
+                        if tab == active_tab
+                            li.active
+                                a(href="/" + tab) #{tab.toUpperCase()}
+                        else
+                            li
+                                a(href="/" + tab) #{tab.toUpperCase()}

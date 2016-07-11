@@ -1,0 +1,27 @@
+{
+  "name": "ipod",
+  "description": "Create interview panels on demand",
+  "main": "index.js",
+  "authors": [
+    "Akshat Sinha"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/akshatsinha/ipod",
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.5.7",
+    "angular-animate": "^1.5.7",
+    "jquery": "^2.2.4",
+    "bootstrap": "^3.3.6"
+  }
+}

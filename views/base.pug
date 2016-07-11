@@ -1,0 +1,16 @@
+include shared/header
+
+block vars
+doctype html
+html
+  head
+    title On Demand Interview Panels | #{title}
+    | <link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+    block head
+  body(ng-app="ipod")
+    block header
+    block body
+    block footer
+    block scripts
+        script(src="/bower_components/angular/angular.js")
+        script(src="/js/main.js")
