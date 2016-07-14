@@ -1,0 +1,14 @@
+extends ../base
+
+block vars
+    - var title = 'Panels'
+
+append header
+    +header('panels')
+
+block body
+    block content
+        .container
+
+            .col-md-4
+                a.btn.btn-primary.btn-lg(href="/panels/create/") Create New Panel

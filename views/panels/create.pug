@@ -1,0 +1,47 @@
+extends ../base
+
+block vars
+    - var title = 'Create A New Interview Panel'
+
+append header
+    +header('panels')
+
+block body
+    block content
+        .container(ng-controller="CreatePanelCtrl as cpc")
+            .col-md-8
+                form.form-horizontal
+                    fieldset
+                        legend Candidate Information
+                        .form-group
+                            label.col-md-2.control-label(for="candidateName") Name
+                            .col-md-10
+                                input.form-control(type="text", id="candidateName", placeholder="Candidate Name")
+
+                        .form-group
+                            label.col-md-2.control-label(for="candidateBriefInfo") Brief Information
+                            .col-md-10
+                                textarea.form-control(type="text", id="candidateBriefInfo", rows="10", style="resize: none", placeholder="First impressions of the candidate")
+
+                        .form-group
+                            label.col-md-2.control-label(for="candidateResume") Attach Resume
+                            .col-md-1.control-label
+                                button.btn.btn-primary(type="submit") Click to Upload
+
+                    br
+                    br
+
+                    fieldset
+                        legend Interview Panel
+                        div(ng-repeat="email in cpc.interviewerEmailsInput")
+                            .form-group
+                                label.col-md-2.control-label(for="interviewer_{{ $index+1 }}") # {{ $index+1 }}
+                                .col-md-8
+                                    input.form-control(type="text", id="interviewer_{{ $index+1 }}" , placeholder="Interviewer Email", ng-model="email.value")
+                                .col-md-2
+                                    button.btn.btn-primary(ng-click="cpc.incrementInterviewerNumber(email)", ng-if="true") +
+                                    button.btn.btn-primary(ng-click="cpc.incrementInterviewerNumber(email)", ng-if="true") -
+
+
+append scripts
+    script(src="/js/create_panel.js")

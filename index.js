@@ -7,10 +7,11 @@ const passport = require('passport')
 const flash = require('connect-flash')
 
 // App Routes
-var loginRoutes = require('./routes/login')
-var signupRoutes = require('./routes/signup')
+var loginRoutes     = require('./routes/login')
+var signupRoutes    = require('./routes/signup')
 var dashboardRoutes = require('./routes/dashboard')
-var logoutRoutes = require('./routes/logout')
+var panelsRoutes    = require('./routes/panels')
+var logoutRoutes    = require('./routes/logout')
 
 
 const auth = require('./lib/auth')
@@ -46,6 +47,7 @@ app.use('/login', loginRoutes)
 app.use('/signup', signupRoutes)
 app.use('/logout', logoutRoutes)
 app.use('/dashboard', auth.requireLogin, dashboardRoutes)
+app.use('/panels', auth.requireLogin, panelsRoutes)
 
 // Go to the index page
 app.get('/', auth.redirectToDashbaordIfLoggedIn, function(req, res) {
